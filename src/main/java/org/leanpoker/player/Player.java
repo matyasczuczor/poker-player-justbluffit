@@ -43,11 +43,11 @@ public class Player {
         }
 
         if (counterFirst > 1 || counterSecond > 1) {
-            return 499;
+            return 299;
         }
 
-        if (highCards.size() >= 1 || cards.get(0).equals(cards.get(1))) {
-            return 498;
+        if (highCards.size() >= 2 || cards.get(0).equals(cards.get(1))) {
+            return 298;
         }
         return 0;
     }
