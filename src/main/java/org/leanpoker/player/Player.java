@@ -9,7 +9,7 @@ public class Player {
     static final String VERSION = "1.1";
 
     public static int betRequest(JsonElement request) {
-        String id = request.get("in_action");
+        String id = request.getString("in_action");
         JSONArray hand = new JSONArray();
         JSONArray players = request.getJSONArray("players");
         String stack;
