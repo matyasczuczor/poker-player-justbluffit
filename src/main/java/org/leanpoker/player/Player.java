@@ -6,7 +6,7 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-    static final String VERSION = "1.2";
+    static final String VERSION = "1.2.1";
 
     public static int betRequest(JsonElement request) {
         String player_id = request.getAsJsonObject().get("in_action").getAsString();
@@ -28,7 +28,7 @@ public class Player {
             }
         }
         if(highCards.size() > 1) {
-            return 1000;
+            return 500;
         }
         return 0;
     }
