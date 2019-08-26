@@ -6,7 +6,7 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-    static final String VERSION = "1.6.1";
+    static final String VERSION = "1.6.2";
 
     public static int betRequest(JsonElement request) {
         String player_id = request.getAsJsonObject().get("in_action").getAsString();
@@ -32,26 +32,24 @@ public class Player {
             }
         }
 
-        int counterFirst = 1;
-        int counterSecond = 1;
+        int counter = 1;
         for (int i = 0; i < flop.size(); i++) {
-            if (cards.get(0).equals(flop.get(i))) {
-                counterFirst++;
-            }
-            if (cards.get(1).equals(flop.get(i))) {
-                counterSecond++;
+            if (cards.get(0).equals(flop.get(i)) || cards.get(1).equals(flop.get(i))) {
+                counter++;
             }
         }
 
-        if (counterFirst > 1 || counterSecond > 1) {
-            return bid;
+        if (counter > 1) {
+            return bid*counter;
         }
 
         if (cards.get(0).getAsJsonObject().get("rank").equals(cards.get(1).getAsJsonObject().get("rank"))) {
+            if (highCards.size() == 2) {
+                return bid*3;
+            }
             return bid;
         }
-
-        if (highCards.size() >= 2) {
+        if (highCards.size() == 2) {
             return bid;
         }
 
