@@ -1,7 +1,8 @@
 package org.leanpoker.player;
 
 import com.google.gson.JsonElement;
-import org.json.simple.JSONArray;
+
+
 import java.util.Map;
 
 public class Player {
@@ -9,8 +10,8 @@ public class Player {
     static final String VERSION = "1.1";
 
     public static int betRequest(JsonElement request) {
-        String id = request.get("in_action");
-        JSONArray hand = new JSONArray();
+        String id = request.getAsString("in_action");
+        JsonArray hand = new JsonArray();
         JSONArray players = request.getJSONArray("players");
         String stack;
         for(int i = 0 ; i < players.length() ; i++){
