@@ -27,7 +27,7 @@ public class Player {
                 highCards.add(cards.get(i));
             }
         }
-        if(highCards.size() > 1) {
+        if(highCards.size() >= 1) {
             return 500;
         }
         return 0;
